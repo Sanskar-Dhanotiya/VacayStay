@@ -1,0 +1,216 @@
+*** VacayStay is a user-friendly platform where customers can book hotels, villas, and other vacation rentals. Ideal for travelers seeking unique and comfortable accommodations, VacayStay offers a wide selection of properties to suit various preferences and budgets. With detailed listings, customer reviews, and secure booking options, VacayStay ensures a seamless and enjoyable vacation planning experience. ***
+
+
+VacayStay Project Work Status ===>
+
+
+Day 1: Initial Setup and Basic Routes
+
+1. Basic Setup-
+  * Installed mongoose, express, ejs, and other necessary packages.
+2. Listing Model-
+  * Created the Listing model with fields like title, description, etc.
+3. Database Initialization-
+  * Initialized the database with sample data using data.js and index.js.
+4. Index Route-
+  * Created a route to list all listings, displaying only titles.
+5. Show Route-
+  * Created a route to display individual listing details.
+6. New Route-
+  * Created a route to take input from the user and a route to add new listings to the database.
+7. Edit Route-
+  * Created a route to edit individual listings and a route to update the listings in the database.
+8. Delete Route-
+  * Created a route to delete individual listings from the database.
+
+
+Day 2: UI Enhancements
+
+1. Boilerplate Code-
+  * Created a layouts/boilerplate.ejs for reusable layout code.
+2. Navbar-
+  * Created a navbar using Bootstrap (includes/navbar.ejs).
+3. Footer-
+  * Created a footer using CSS (includes/footer.ejs).
+4. Styling Pages-
+  * Styled the index page with cards using Bootstrap/CSS.
+  * Styled the new page form using Bootstrap/CSS.
+  * Styled the edit page form using Bootstrap/CSS.
+  * Styled the show page using Bootstrap/CSS.
+
+
+Day 3: Form Validation and Error Handling
+
+1. Form Validation-
+  * Implemented form validation using Bootstrap in new.ejs and edit.ejs.
+2. Success and Failure Messages-
+  * Added success and failure messages for better user feedback using Bootstrap.
+3. Custom Error Handling-
+  * Created middleware for custom error handling using try/catch.
+  * Wrapped try/catch in a wrapAsync function (utils/wrapAsync.js).
+4. ExpressError-
+  * Created ExpressError.js for handling different error types.
+5. Schema Validation-
+  * Created schema.js for schema validation using Joi.
+  * Modified schema validation to function in middleware.
+
+
+Day 4: Reviews Functionality
+
+1. Review Schema and Model-
+  * Created a review schema and model.
+  * Added a review field in the listing schema.
+2. Review Form-
+  * Created a review form in show.ejs.
+3. Review Route-
+  * Created a route to add reviews to the database.
+4. Validation-
+  * Implemented client-side and server-side validation using Joi for reviews.
+5. Render Reviews-
+  * Rendered reviews on the show page in card format.
+6. Review Styling-
+  * Styled reviews on the show page using Bootstrap.
+7. Delete Review-
+  * Created a delete review button in show.ejs and a route to delete reviews.
+8. Listing Review Middleware-
+  * Created middleware to delete associated reviews when a listing is deleted.
+
+
+Day 5: Route Organization
+
+1. Routes Folder-
+  * Created a routes folder and organized listing routes in listings.js.
+2. Review Routes-
+  * Organized review routes in review.js.
+
+
+Day 6: Session and Flash Messages
+
+1. Express-Session-
+  * Installed and defined express-session in app.js.
+2. Cookie Configuration-
+  * Defined cookie options in session settings.
+3. Flash Messages-
+  * Created flash messages for new listings in create route and displayed in index.js.
+  * Modified flash messages for listings and reviews using Bootstrap in flash.ejs.
+
+
+Day 7: User Authentication
+
+1. Passport Setup-
+  * Installed passport, passport-local, and passport-local-mongoose.
+  * Created a user model (models/user.js).
+2. Passport Configuration-
+  * Initialized passport configuration settings in app.js.
+3. Signup Route-
+  * Created a signup route in routes/users.js and a signup page in views/users/signup.ejs.
+4. Signup Post Route-
+  * Created a route to store user data on the server.
+5. Login Routes-
+  * Created login routes (get and post) in routes/users.js and a login page in views/users/login.ejs.
+
+
+Day 8: Authentication Middleware and Authorization
+
+1. Authentication Middleware-
+  * Created middleware.js to check if a user is logged in and added it to listings.js.
+2. Logout Route-
+  * Created a logout route in routes/users.js.
+3. Navbar Buttons-
+  * Added signup, login, and logout buttons in views/includes/navbar.ejs.
+4. Automatic Login-
+  * Implemented automatic login after signup in signup post route (routes/users.js).
+5. Redirect After Login-
+  * Redirected users to the intended page after login using middleware (middleware.js and login post route).
+6. Listing Owner-
+  * Added an owner field in the listing model and displayed it in show.ejs.
+7. Authorization for Listings-
+  * Implemented authorization for editing and deleting listings in show.ejs (only owners can edit/delete).
+8. Middlewares for Listings-
+  * Created isOwner, validateListing, and validateReview middlewares to check if the current user is the owner of the listing.
+9. Review Authorization-
+  * Allowed only logged-in users to submit reviews.
+  * Added an author field in the review model and set it in newReview.author (routes/reviews.js).
+  * Implemented authorization for deleting reviews (only review authors can delete).
+
+
+Day 9: Refactoring and Image Upload
+
+1. Controllers Folder-
+  * Created a controllers folder for backend code management (controllers/listings.js, controllers/reviews.js, controllers/users.js).
+2. Router.route Method-
+  * Used router.route method in listings.js, reviews.js, users.js for better readability.
+3. Starability- 
+  * Integrated starability for improved review display in show.ejs.
+4. Image Upload-
+  * Created an image upload form in new.ejs using Multer.
+  * Created a .env file for storing Cloudinary credentials.
+  * Created cloudConfig.js and configured Cloudinary and Multer for image storage.
+  * Updated listing model to include an image field.
+
+
+Day 10: Edit Image, Map Integration
+
+1. Edit Image-
+  * Updated edit.ejs to include an image field and saved images in controllers/listings.js for the update route.
+2. Image Preview-
+  * Created an image preview in edit.js and modified image quality in controllers/listings.js.
+3. Mapbox Integration-
+  * Created an account on Mapbox and added a default token in .env.
+  * Added a map in show.ejs and linked necessary scripts in boilerplate.ejs.
+  * Created js/map.js with predefined Mapbox code.
+4. Geocoding-
+  * Installed and defined mapbox-sdk for geocoding in controllers/listings.js.
+  * Used GeoJSON for storing coordinates in controllers/listings.js and added a geometry field in the listing model.
+5. Map Marker-
+  * Added map markers in js/map.js and configured marker popup messages.
+
+
+Day 11: UI Improvements
+
+1. Navbar Changes-
+  * Made changes in navbar.ejs.
+2. Filter UI-
+  * Added filter UI in index.ejs.
+3. Tax Switch-
+  * Added UI for tax switch in index.ejs with CSS/JS for better appearance.
+4. Search Navbar-
+  * Added a search bar in navbar.ejs.
+
+
+Day 12: Project Deployment
+
+1. Set Up MongoDB Atlas
+  * Create an account on MongoDB Atlas.
+  * Create a user on MongoDB Atlas.
+  * Copy the database connection link from Atlas and add it to the .env file.
+  * Connect to the database in app.js.
+
+2. Configure MongoDB Sessions
+  * Install connect-mongo.
+  * Define properties in app.js to store sessions on the cloud using MongoDB.
+
+3. Prepare for Deployment on Render
+  * Create an account on Render.com.
+  * Set the Node.js version in package.json.
+
+4. Prepare for GitHub Deployment
+  * Create a .gitignore file.
+  * List folders and files to be ignored in .gitignore to prevent them from being pushed to GitHub.
+  * Push all code to GitHub.
+
+5. Deploy on Render
+  * Connect Render to GitHub and choose the project to deploy.
+  * Add environmental variables in Render from the .env file.
+  * Add the IP address from render to atlas on every projects.
+  * Deploy the project on Render.
+  * Use the provided link to run the project.
+
+
+project link: https://vacaystay.onrender.com/listings
+
+
+
+***** if you connect with local machine(const dbUrl='mongodb://127.0.0.1:27017/VacayStay') project will be run.
+
+***** project has no error but it show, clone project from github and create database on server and deploy project will be run.
